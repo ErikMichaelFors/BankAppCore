@@ -1,0 +1,35 @@
+﻿@model Application.Models.AccountModels.TransferViewModel
+
+@{
+    ViewData["Title"] = "Transfer Successful";
+}
+
+<h1>Transfer Successful</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            From account
+        </dt>
+        <dd class="col-sm-10">
+            <a asp-action="GoToCustomerInfo" asp-controller="Customer" asp-route-AccountId="@Model.FromAccount">
+                @Model.FromAccount
+            </a>
+        </dd>
+        <dt class = "col-sm-2">
+            To account
+        </dt>
+        <dd class = "col-sm-10">
+            <a asp-action="GoToCustomerInfo" asp-controller="Customer" asp-route-AccountId="@Model.ToAccount">
+                @Model.ToAccount
+            </a>
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Amount)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Amount)
+        </dd>
+    </dl>
+</div>

@@ -1,0 +1,144 @@
+﻿@model Application.Models.CustomerModels.CustomerViewModel
+
+@{
+    ViewData["Title"] = "CreateCustomer";
+}
+
+<h1>Edit Customer @Model.CustomerId</h1>
+
+<form asp-controller="Customer" asp-action="SaveEditedCustomer" method="post">
+    <input type="hidden" asp-for="@Model.CustomerId" />
+    <h2>Mandatory Information</h2>
+
+    <table class="table table-striped">
+        <tr>
+            <th>Gender</th>
+            <td>
+                <input asp-for="@Model.Gender" value="@Model.Gender" />
+                <span asp-validation-for="@Model.Gender" class="text-danger"></span>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Given Name
+            </th>
+            <td>
+                <input asp-for="@Model.Givenname" value="@Model.Givenname" />
+                <span asp-validation-for="@Model.Givenname" class="text-danger"></span>
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                Surename
+            </th>
+            <td>
+                <input asp-for="@Model.Surname" value="@Model.Surname" />
+                <span asp-validation-for="@Model.Surname" class="text-danger"></span>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Street Address
+            </th>
+            <td>
+                <input asp-for="@Model.Streetaddress" value="@Model.Streetaddress" />
+                <span asp-validation-for="@Model.Streetaddress" class="text-danger"></span>
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                City
+            </th>
+            <td>
+                <input asp-for="@Model.City" value="@Model.City" />
+                <span asp-validation-for="@Model.City" class="text-danger"></span>
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                Zip Code
+            </th>
+            <td>
+                <input asp-for="@Model.Zipcode" value="@Model.Zipcode" />
+                <span asp-validation-for="@Model.Zipcode" class="text-danger"></span>
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                Country
+            </th>
+            <td>
+                <input asp-for="@Model.Country" value="@Model.Country" />
+                <span asp-validation-for="@Model.Country" class="text-danger"></span>
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                Country Code
+            </th>
+            <td>
+                <input asp-for="@Model.CountryCode" value="@Model.CountryCode" />
+                <span asp-validation-for="@Model.CountryCode" class="text-danger"></span>
+            </td>
+        </tr>
+    </table>
+
+    <h2>Optional information</h2>
+    <table class="table table-striped">
+        <tr>
+            <th>
+                Birthday
+            </th>
+            <td>
+                <input type="datetime" asp-for="@Model.Birthday" value="@Model.Birthday" />
+                <span asp-validation-for="@Model.Birthday" class="text-danger"></span>
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                National ID
+            </th>
+            <td>
+                <input type="text" asp-for="@Model.NationalId" value="@Model.NationalId" />
+                <span asp-validation-for="@Model.NationalId" class="text-danger"></span>
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                Telephone Country Code
+            </th>
+            <td>
+                <input type="text" asp-for="@Model.Telephonecountrycode" value="@Model.Telephonecountrycode" />
+                <span asp-validation-for="@Model.Telephonecountrycode" class="text-danger"></span>
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                Telephonenumber
+            </th>
+            <td>
+                <input type="tel" asp-for="@Model.Telephonenumber" value="@Model.Telephonenumber" />
+                <span asp-validation-for="@Model.Telephonenumber" class="text-danger"></span>
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                Email
+            </th>
+            <td>
+                <input type="email" asp-for="@Model.Emailaddress" value="@Model.Emailaddress" />
+                <span asp-validation-for="@Model.Emailaddress" class="text-danger"></span>
+            </td>
+        </tr>
+    </table>
+    <button>Save Changes</button>
+</form>

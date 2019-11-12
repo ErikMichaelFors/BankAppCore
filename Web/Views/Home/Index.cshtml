@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model Core.Application.Models.HomeModels.StartPageViewModel;
+
+
+@{/*  Du ska se antal kunder, antal konton och summan av saldot på konton.  */}
+
+<h1>Översikt</h1>
+<div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Antal kunder</th>
+                <th>Antal konton</th>
+                <th>Totalt saldo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.NumberOfCustomers</td>
+                <td>@Model.NumberOfAccounts</td>
+                <td>@Model.TotalAmountOfAllAccounts.</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

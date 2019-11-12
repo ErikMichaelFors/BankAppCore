@@ -1,0 +1,52 @@
+﻿
+
+@model Core.Application.Models.CustomerModels.SearchCustomerViewModel;
+
+@{
+    string display = "";
+    if (Model.Name != null && Model.City != null)
+    {
+        display = "'" + Model.Name + "' + '" + Model.City + "'";
+    }
+    else if (Model.City == null)
+    {
+        display = "'" + Model.Name + "'";
+    }
+    else if (Model.Name == null)
+    {
+        display = "'" + Model.City + "'";
+    }
+}
+
+<h1>Results</h1>
+<strong>Search terms: @display</strong>
+<br /><br />
+
+@{
+    int count = 0+(Model.CurrentPage*50);
+}
+
+<form asp-controller="Customer" asp-action="DisplayCustomerSearchList" method="post">
+    <strong>
+        Page: @Model.CurrentPage
+    </strong>
+    <br>
+    <input type="hidden" asp-for="@Model.City" />
+    <input type="hidden" asp-for="@Model.Name" />
+    <input type="hidden" asp-for="@Model.Customers" />
+
+    @if (Model.CurrentPage > 0)
+    {
+        <button asp-route-page="@(Model.CurrentPage-1)">Previous 50 Results</button>
+    }
+    @foreach (var customer in @Model.Customers)
+    {
+        <a asp-controller="Customer" asp-action="CustomerInfo" asp-route-CustomerId="@customer.CustomerId">
+            <p><strong>@(++count))</strong> @customer.Givenname @customer.Surname, @customer.City</p>
+        </a>
+    }
+    @if (Model.MoreResults == true)
+    {
+        <button asp-route-page="@(Model.CurrentPage+1)">Next 50 Results</button>
+    }
+</form>

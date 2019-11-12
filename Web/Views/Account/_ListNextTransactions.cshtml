@@ -1,0 +1,20 @@
+﻿@model Core.Application.Models.AccountModels.AccountViewModel
+
+
+@foreach (var transaction in Model.Transactions)
+{
+    <tr>
+        <td>@transaction.Balance.ToString("#,##.00")</td>
+        <td>@transaction.Operation</td>
+        <td>@transaction.Amount.ToString("#,##.00")</td>
+        <td>@transaction.Date.ToString("yyyy-MM-dd")</td>
+    </tr>
+}
+<tr id="buttonRow">
+    <td colspan="4" align="center">
+            <div>
+                <a data-ajax="true" data-ajax-mode="REPLACE-WITH" data-ajax-update="#buttonRow" data-ajax-method="POST"
+                   asp-route-accountId="@Model.Transactions[0].AccountId" asp-route-page="@(Model.CurrentPage+1)">Show more</a>
+            </div>
+    </td>
+</tr>

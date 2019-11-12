@@ -1,0 +1,116 @@
+﻿
+@{
+    ViewData["Title"] = "CustomerInfo";
+}
+
+@model Application.Models.CustomerModels.CustomerInfoViewModel;
+
+@if (Model.Customer.CustomerId == 0)
+{
+    <h2>@Model.ErrorMessage</h2>
+}
+else
+{
+    <h1>Customer Information</h1>
+
+    <br />
+    <table class="table table-striped">
+        <tr>
+            <th>Kundnummer:</th>
+            <td>@Model.Customer.CustomerId</td>
+        </tr>
+        <tr>
+            <th>Kön:</th>
+            <td>@Model.Customer.Gender</td>
+        </tr>
+        <tr>
+            <th>Förnamn:</th>
+            <td>@Model.Customer.Givenname</td>
+        </tr>
+        <tr>
+            <th>Efternamn:</th>
+            <td>@Model.Customer.Surname</td>
+        </tr>
+        <tr>
+            <th>Gatuadress:</th>
+            <td>@Model.Customer.Streetaddress</td>
+        </tr>
+        <tr>
+            <th>Stad:</th>
+            <td>@Model.Customer.City</td>
+        </tr>
+        <tr>
+            <th>Zipcode:</th>
+            <td>@Model.Customer.Zipcode</td>
+        </tr>
+        <tr>
+            <th>Land:</th>
+            <td>@Model.Customer.Country</td>
+        </tr>
+        <tr>
+            <th>Landskod:</th>
+            <td>@Model.Customer.CountryCode</td>
+        </tr>
+        <tr>
+            <th>Födelsedag:</th>
+            <td>@Model.Customer.Birthday</td>
+        </tr>
+        <tr>
+            <th>NationsId:</th>
+            <td>@Model.Customer.NationalId</td>
+        </tr>
+        <tr>
+            <th>Telefonlandskod:</th>
+            <td>@Model.Customer.Telephonecountrycode</td>
+        </tr>
+        <tr>
+            <th>Telefonnummer:</th>
+            <td>@Model.Customer.Telephonenumber</td>
+        </tr>
+        <tr>
+            <th>Emailadress:</th>
+            <td>@Model.Customer.Emailaddress</td>
+        </tr>
+    </table>
+    <a asp-controller="Customer" asp-action="EditCustomer" asp-route-id="@Model.Customer.CustomerId"><button class="table table-striped btn btn-secondary">Edit</button></a>
+    <br /><br />
+
+    <div class="CustomerAccounts">
+        <h2>Accounts: </h2>
+        @if (@Model.Accounts.Count() > 0)
+        {
+            @foreach (var account in Model.Accounts)
+            {
+
+                <table class="table table-striped">
+                    <tr>
+                        <th>Account</th>
+                        <td>
+                            <a asp-controller="Account" asp-action="DisplayTransactions" asp-route-accountId="@account.AccountId">
+                                <strong>@account.AccountId</strong>
+                            </a>
+                        </td>
+                        <td>
+                            <a asp-controller="Account" asp-action="MakeDeposit" asp-route-accountId="@account.AccountId"><button class="table  btn btn-secondary">Deposit</button></a>
+                        </td>
+                        <td>
+                            <a asp-controller="Account" asp-action="MakeTransfer" asp-route-accountId="@account.AccountId"><button class="table btn btn-secondary">Transfer</button></a>
+                        </td>
+                        <td>
+                            <a asp-controller="Account" asp-action="MakeWithdrawal" asp-route-accountId="@account.AccountId"><button class="table btn btn-secondary">Withdrawal</button></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Balance</th>
+                        <td>@account.Balance</td>
+                    </tr>
+                </table>
+            }
+            <h3>Total saldo: @Model.SumTotal</h3>
+        }
+        else
+        {
+            <strong>This customer do not have an account yet</strong>
+        }
+    </div>
+}

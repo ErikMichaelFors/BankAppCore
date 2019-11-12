@@ -1,0 +1,28 @@
+﻿
+
+
+@model Core.Application.Models.AccountModels.AccountViewModel;
+
+@{
+    ViewData["Title"] = "Display Transactions";
+}
+
+    <h1>Transactions for account @Model.Transactions[0].AccountId</h1>
+
+
+
+<div id="myTarget">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Balance</th>
+                <th>Operation</th>
+                <th>Amount</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <partial name="_ListNextTransactions" model="@Model" />
+        </tbody>
+    </table>
+</div>

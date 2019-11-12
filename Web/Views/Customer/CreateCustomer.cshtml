@@ -1,0 +1,83 @@
+﻿@model Application.Models.CustomerModels.CustomerViewModel
+
+@{
+    ViewData["Title"] = "CreateCustomer";
+}
+
+<h1>Create Customer</h1>
+
+<form asp-controller="Customer" asp-action="CreateCustomer" method="post">
+    <h2>Mandatory Information</h2>
+    <label asp-for="@Model.Gender">Gender:</label>
+    <input asp-for="@Model.Gender" />
+    <span asp-validation-for="@Model.Gender" class="text-danger"></span>
+    <br />
+
+    <label asp-for="@Model.Givenname">Given name:</label>
+    <input asp-for="@Model.Givenname" />
+    <span asp-validation-for="@Model.Givenname" class="text-danger"></span>
+    <br />
+
+    <label asp-for="@Model.Surname">Surname:</label>
+    <input asp-for="@Model.Surname" />
+    <span asp-validation-for="@Model.Surname" class="text-danger"></span>
+    <br />
+
+    <label asp-for="@Model.Streetaddress">Street Address:</label>
+    <input asp-for="@Model.Streetaddress" />
+    <span asp-validation-for="@Model.Streetaddress" class="text-danger"></span>
+    <br />
+
+    <label asp-for="@Model.City">City:</label>
+    <input asp-for="@Model.City" />
+    <span asp-validation-for="@Model.City" class="text-danger"></span>
+    <br />
+
+    <label asp-for="@Model.Zipcode">Zip code:</label>
+    <input asp-for="@Model.Zipcode" />
+    <span asp-validation-for="@Model.Zipcode" class="text-danger"></span>
+    <br />
+
+    <label asp-for="@Model.Country">Country:</label>
+    <input asp-for="@Model.Country" />
+    <span asp-validation-for="@Model.Country" class="text-danger"></span>
+    <br />
+
+    <label asp-for="@Model.CountryCode">Country code:</label>
+    <input asp-for="@Model.CountryCode" />
+    <span asp-validation-for="@Model.CountryCode" class="text-danger"></span>
+    <br />
+
+    <h2>Optional information</h2>
+    <label>
+        Birthday:
+        <input type="datetime" asp-for="@Model.Birthday" />
+        <span asp-validation-for="@Model.Birthday" class="text-danger"></span>
+    </label>
+    <br />
+    <label>
+        National Id:
+        <input asp-for="@Model.NationalId" />
+        <span asp-validation-for="@Model.NationalId" class="text-danger"></span>
+    </label>
+    <br />
+    <label>
+        Telephone country code:
+        <input asp-for="@Model.Telephonecountrycode" />
+        <span asp-validation-for="@Model.Telephonecountrycode" class="text-danger"></span>
+    </label>
+    <br />
+    <label>
+        Telephone number:
+        <input type="tel" asp-for="@Model.Telephonenumber" />
+        <span asp-validation-for="@Model.Telephonenumber" class="text-danger"></span>
+    </label>
+    <br />
+    <label>
+        Emailadress:
+        <input type="email" asp-for="@Model.Emailaddress" />
+        <span asp-validation-for="@Model.Emailaddress" class="text-danger"></span>
+    </label>
+    <br />
+    <button>Create Customer</button>
+</form>

@@ -1,0 +1,25 @@
+﻿
+
+@model Core.Application.Models.CustomerModels.SearchCustomerViewModel;
+
+
+<h1>Search Customer</h1>
+
+<form asp-controller="Customer" asp-action="DisplayCustomerSearchList" method="post">
+    <label>
+        Name:
+        <input asp-for="@Model.Name" />
+    </label>
+    <label>City:
+        <input asp-for="@Model.City" />
+    </label>
+    <button>Search</button>
+</form>
+
+<form asp-controller="Customer" asp-action="CustomerInfo" method="post">
+    <label>
+        Customer ID:
+        <input type="number" min="0" asp-for="@Model.CustomerId" />
+    </label>
+    <button>Search</button>
+</form>

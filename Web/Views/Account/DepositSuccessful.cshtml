@@ -1,0 +1,27 @@
+﻿@model Application.Models.AccountModels.DepositViewModel
+
+@{
+    ViewData["Title"] = "DepositSuccessful";
+}
+
+<h1>Deposit Successful</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Account)
+        </dt>
+        <dd class = "col-sm-10">
+            <a asp-action="GoToCustomerInfo" asp-controller="Customer" asp-route-AccountId="@Model.Account">
+                @Model.Account
+            </a>
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Amount)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Amount)
+        </dd>
+    </dl>
+</div>

@@ -1,0 +1,26 @@
+﻿@model Application.Models.RolesModels.RegisterViewModel
+
+<h1>Create User </h1>
+
+<form asp-controller="Admin" asp-action="Register" method="post">
+
+    <label asp-for="UserName"></label>
+    <input asp-for="UserName" />
+    <span asp-validation-for="UserName"></span>
+
+    <br /><br />
+
+    <label asp-for="Password"></label>
+    <input asp-for="Password"  />
+    <span asp-validation-for="Password"></span>
+
+    <br /><br />
+    <input type="radio" asp-for="Role" value="Admin" />
+    Admin
+
+    <input type="radio" asp-for="Role" value="Cashier" />
+    Cashier
+    <span asp-validation-for="Role"></span>
+    <button type="submit">Save</button>
+
+</form>
